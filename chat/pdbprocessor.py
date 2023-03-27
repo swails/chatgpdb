@@ -27,7 +27,7 @@ async def process_pdb_file(pdb_code: str) -> pmd.Structure:
         struct = await asyncio.to_thread(
             pmd.download_CIF, pdb_code, saveto=cif_path.as_posix()
         )
-    except OSError:
+    except Exception:
         struct = await asyncio.to_thread(
             pmd.download_PDB, pdb_code, saveto=pdb_path.as_posix()
         )

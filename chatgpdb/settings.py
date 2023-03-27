@@ -18,7 +18,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 PARMED_CACHE_DIR = Path(__file__).resolve().parent.parent / "parmed-cache"
 PARMED_CACHE_DIR.mkdir(exist_ok=True)
-GPT2_MODEL = os.getenv("GPT2_MODEL", "gpt2-large")
+GPT_MODEL = os.getenv("GPT_MODEL", "gpt2-large")
 
 RUN_CUDA = True
 
