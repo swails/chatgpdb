@@ -1,0 +1,24 @@
+name: chatgpdb-dev
+channels:
+  - conda-forge
+
+dependencies:
+  - uvicorn
+  - gunicorn
+  - django
+
+  - jupyter
+  - transformers
+  - pytorch
+  - spacy
+  - ftfy
+  - accelerate
+  - black
+  - daphne
+
+  - parmed
+
+  - pip
+  - pip:
+    - channels
+    - pytorch-transformers
