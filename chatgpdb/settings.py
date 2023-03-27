@@ -18,10 +18,11 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 PARMED_CACHE_DIR = Path(__file__).resolve().parent.parent / "parmed-cache"
 PARMED_CACHE_DIR.mkdir(exist_ok=True)
+GPT2_MODEL = os.getenv("GPT2_MODEL", "gpt2-large")
 
-RUN_CUDA = True
+RUN_CUDA = False  # True
 
-CHATGPDB_RESPONSE_WORD_COUNT = int(os.getenv("CHATGPDB_RESPONSE_WORD_COUNT", "200"))
+CHATGPDB_RESPONSE_WORD_COUNT = int(os.getenv("CHATGPDB_RESPONSE_WORD_COUNT", "100"))
 
 
 # Quick-start development settings - unsuitable for production

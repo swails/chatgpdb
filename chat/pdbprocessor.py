@@ -1,4 +1,5 @@
 import asyncio
+import random
 from collections import Counter
 from typing import Optional
 
@@ -9,7 +10,9 @@ from chatgpdb.settings import PARMED_CACHE_DIR
 
 async def process_pdb_file(pdb_code: str) -> pmd.Structure:
     if len(pdb_code) != 4:
-        raise ValueError(f"Silly rabbit, {pdb_code} is not a valid PDB code. Tricks are for kids!")
+        raise ValueError(
+            f"Silly rabbit, {pdb_code} is not a valid PDB code. Tricks are for kids!"
+        )
 
     pdb_path = PARMED_CACHE_DIR / f"{pdb_code.lower()}.pdb"
     cif_path = PARMED_CACHE_DIR / f"{pdb_code.lower()}.cif"
@@ -21,9 +24,13 @@ async def process_pdb_file(pdb_code: str) -> pmd.Structure:
         return await asyncio.to_thread(pmd.load_file, cif_path.as_posix())
 
     try:
-        struct = await asyncio.to_thread(pmd.download_CIF, pdb_code, saveto=pdb_path.as_posix())
+        struct = await asyncio.to_thread(
+            pmd.download_CIF, pdb_code, saveto=cif_path.as_posix()
+        )
     except OSError:
-        struct = await asyncio.to_thread(pmd.download_PDB, pdb_code, saveto=pdb_path.as_posix())
+        struct = await asyncio.to_thread(
+            pmd.download_PDB, pdb_code, saveto=pdb_path.as_posix()
+        )
 
     return struct
 
@@ -36,7 +43,11 @@ def describe_structure(struct: pmd.Structure, pdb_id: str) -> tuple[str, str]:
     has_hydrogens = any(atom.atomic_number == 1 for atom in struct.atoms)
 
     authors = struct.journal_authors
-    year = "a time past, long forgotten" if struct.year is None else struct.year.split(",")[0].strip()
+    year = (
+        "a time past, long forgotten"
+        if struct.year is None
+        else struct.year.split(",")[0].strip()
+    )
     experimental = struct.experimental.title().replace("Nmr", "NMR")
     resolution_passage = ""
     journal = struct.journal
@@ -44,26 +55,30 @@ def describe_structure(struct: pmd.Structure, pdb_id: str) -> tuple[str, str]:
     title = struct.title.split(";")[0].strip().rstrip(".")
 
     if struct.resolution is not None:
-        if struct.resolution > 1.5:
-            resolution_passage = f"They resolved only to {struct.resolution} Angstroms, but we'll let it slide in {year}. "
+        if struct.resolution > 1.0:
+            resolution_passage = f" They resolved only to {struct.resolution} Angstroms, but we'll let it slide in {year}. "
         else:
-            resolution_passage = f"They managed to resolve to {struct.resolution} Angstroms! "
+            resolution_passage = (
+                f" They managed to resolve to {struct.resolution} Angstroms! "
+            )
 
     description = (
         f"In {year}, {authors} ran a {experimental} experiment to solve the {n_residues}-residue {pdb_id}. "
         f"Doing so, they managed to find {n_atoms} atoms lurking in the protein."
         f"{' (though they forgot about the hydrogen atoms...)' if not has_hydrogens else ' '} "
         f"and rushed to tell {journal} about their great triumph, finding their way to page {page} "
-        f"in a work titled \"{title}\".{resolution_passage}"
+        f'in a work titled "{title}".{resolution_passage}'
     )
 
     generator_prompt = create_generator_prompt(residue_counts)
 
     return description, generator_prompt
-    
+
 
 def create_generator_prompt(residue_counts: dict[str, int]) -> str:
-    sorted_residues_with_counts = sorted(list(residue_counts.items()), key=lambda x: x[1], reverse=True)
+    sorted_residues_with_counts = sorted(
+        list(residue_counts.items()), key=lambda x: x[1], reverse=True
+    )
     most_common_resname = None
     most_common_count = 0
     has_residue_types = set()
@@ -74,7 +89,7 @@ def create_generator_prompt(residue_counts: dict[str, int]) -> str:
             continue
         if resname in pmd.residue.ALLION_NAMES:
             continue
-        n_biopolymer_residues += 1
+        n_biopolymer_residues += cnt
         has_residue_types.add(residue_type)
         if most_common_resname is None:
             most_common_resname = resname
@@ -94,7 +109,7 @@ def create_generator_prompt(residue_counts: dict[str, int]) -> str:
 
     return (
         f"{descriptor}, with its {n_biopolymer_residues} biopolymer residues, at least "
-        f"{most_common_count} of them {most_common_resname}, would move like "
+        f"{most_common_count} of them {most_common_resname}, would {random_transition()}"
     )
 
 
@@ -115,3 +130,23 @@ def resolve_common_name(resname: str) -> tuple[str, Optional[str]]:
         pass
 
     return resname, None
+
+
+def random_transition() -> str:
+    possible_transitions = [
+        "move like",
+        "move",
+        "move just like",
+        "taste like",
+        "smell like",
+        "simulate as",
+        "behave like",
+        "jiggle around",
+        "fall into",
+        "antechamber",
+        "jump over",
+        "go in amber like",
+        "",
+    ]
+
+    return random.choice(possible_transitions)

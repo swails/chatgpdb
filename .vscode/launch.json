@@ -9,11 +9,15 @@
             "type": "python",
             "request": "launch",
             "program": "${workspaceFolder}/manage.py",
+            "env": {
+                "GPT2_MODEL": "gpt2-xl"
+            },
             "args": [
-                "runserver", "0.0.0.0:8080"
+                "runserver",
+                "0.0.0.0:8080"
             ],
             "django": true,
-            "justMyCode": true
+            "justMyCode": false
         }
     ]
 }
