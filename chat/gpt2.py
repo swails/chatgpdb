@@ -25,7 +25,7 @@ class GptSolver:
 
         # This is the long part, so run it in a thread non-blocking
         outputs = await asyncio.to_thread(
-            self.pipeline, prompt, max_length=length_of_response
+            self.pipeline, prompt, min_length=length_of_response
         )
 
         output = outputs[0]["generated_text"]

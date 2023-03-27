@@ -1,4 +1,4 @@
-<!-- chat/templates/chat/room.html -->
+<!-- chat/templates/chat/pdb.html -->
 <!DOCTYPE html>
 <html>
 <head>
@@ -22,8 +22,10 @@
     <script>
         const pdbId = JSON.parse(document.getElementById('pdb-id').textContent);
 
+        console.log(window.location.host)
+
         const chatSocket = new WebSocket(
-            'ws://'
+            'wss://'
             + window.location.host
             + '/ws/chat/'
             + pdbId
