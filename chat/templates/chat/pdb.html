@@ -25,7 +25,7 @@
         console.log(window.location.host)
 
         var protocol = "ws://";
-        if (window.location.protocol == "https") {
+        if (window.location.protocol == "https:") {
             protocol = "wss://";
         }
 
@@ -47,7 +47,7 @@
         };
 
         chatSocket.onclose = function(e) {
-            console.error('Chat socket closed unexpectedly');
+            console.error('Chat socket closed');
         };
 
         /*
