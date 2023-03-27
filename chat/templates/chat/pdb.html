@@ -24,8 +24,13 @@
 
         console.log(window.location.host)
 
+        var protocol = "ws://";
+        if (window.location.protocol == "https") {
+            protocol = "wss://";
+        }
+
         const chatSocket = new WebSocket(
-            'wss://'
+            protocol
             + window.location.host
             + '/ws/chat/'
             + pdbId
