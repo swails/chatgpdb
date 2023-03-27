@@ -33,11 +33,7 @@ class GptSolver:
 
         output = outputs[0]
 
-        # Strip off the last partial-sentence, but don't let it strip off too much.
-        stripped = output[: output.rfind(".") + 1]
-        if len(stripped) < len(output) * 0.8:
-            return output
-        return stripped
+        return f"{output}..."
 
 
 global_solver = GptSolver()
