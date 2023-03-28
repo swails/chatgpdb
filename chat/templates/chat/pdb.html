@@ -38,36 +38,34 @@
             + '/'
         );
 
+        var textToAdd = ""
+        var closed = false;
+
         chatSocket.onmessage = function(e) {
             const data = JSON.parse(e.data);
-            if (data.first) {
-                document.querySelector("#chat-log").value = data.message
-            } else {
-                document.querySelector('#chat-log').value += data.message;
-            }
+            textToAdd += data.message;
         };
+
+        function writeText() {
+            var i = 0;
+            var speed = 8;
+            function typeWriter() {
+                if (i < textToAdd.length) {
+                    document.querySelector("#chat-log").value += textToAdd.charAt(i);
+                    i++;
+                    setTimeout(typeWriter, speed);
+                } else if (!closed) {
+                    setTimeout(typeWriter, speed);
+                }
+            }
+            typeWriter();
+        }
+
+        writeText();
 
         chatSocket.onclose = function(e) {
-            console.error('Chat socket closed');
+            closed = true;
         };
-
-        /*
-        document.querySelector('#chat-message-input').focus();
-        document.querySelector('#chat-message-input').onkeyup = function(e) {
-            if (e.keyCode === 13) {  // enter, return
-                document.querySelector('#chat-message-submit').click();
-            }
-        };
-
-        document.querySelector('#chat-message-submit').onclick = function(e) {
-            const messageInputDom = document.querySelector('#chat-message-input');
-            const message = messageInputDom.value;
-            chatSocket.send(JSON.stringify({
-                'message': message
-            }));
-            messageInputDom.value = '';
-        };
-        */
     </script>
 
     <script>

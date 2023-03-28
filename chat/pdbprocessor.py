@@ -146,6 +146,10 @@ def random_transition() -> str:
         "antechamber",
         "jump over",
         "go in amber like",
+        "run in sander like",
+        "hit parmchk like",
+        "GPU as",
+        "buzz like",
         "",
     ]
 
