@@ -11,7 +11,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 </head>
 <body>
-    <textarea id="chat-log" cols="100" rows="50" readonly></textarea><br>
+    <div class="centered">
+        <textarea id="chat-log" readonly></textarea><br>
+        <input class="btn btn-primary btn-lg btn-block" id="back-submit" type="button" value="Back">
+    </div>
     <!--
     <input id="chat-message-input" type="text" size="100"><br>
     <input id="chat-message-submit" type="button" value="Send">
@@ -66,10 +69,6 @@
         };
         */
     </script>
-
-    <div>
-        <input class="btn btn-primary btn-lg btn-block" id="back-submit" type="button" value="Back">
-    </div>
 
     <script>
         document.querySelector('#back-submit').onclick = function(e) {
