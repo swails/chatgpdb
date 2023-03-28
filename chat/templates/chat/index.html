@@ -5,34 +5,17 @@
     <meta charset="utf-8"/>
     <title>ChatGPDB</title>
 
-    <!-- Bootstrap CSS 
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
-        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
--->
     {% load static %}
     <link rel="stylesheet" href="{% static 'chat/css/style.css' %}">
-
-    <style>
-        .vertical-center {
-            margin: 0;
-            position: absolute;
-            top: 30%;
-            -ms-transform: translateY(-50%);
-            transform: translateY(-50%);
-        }
-        .horizontal-center {
-            margin: 0;
-            position: absolute;
-            right: 50%;
-        }
-    </style>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
 
 </head>
 <body>
     <h1 class="centered topspaced">Enter a PDB code to get started</h1>
     <div class="centered">
-                    <input class="input" id="pdb-code-input" placeholder="Enter PDB code here" id="input" type="text"></br>
-                    <input class="button" id="pdb-code-submit" type="button" value="Analyze it!">
+        <input class="input" id="pdb-code-input" placeholder="Enter PDB code here" id="input" type="text">
+        </br>
+        <input class="button" id="pdb-code-submit" type="button" value="Analyze it!">
     </div>
 
     <script>
