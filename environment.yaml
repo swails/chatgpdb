@@ -6,6 +6,7 @@ dependencies:
   - uvicorn
   - gunicorn
   - django
+  - websockets
 
   - jupyter
   - transformers

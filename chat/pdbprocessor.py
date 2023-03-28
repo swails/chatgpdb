@@ -148,7 +148,7 @@ def random_transition() -> str:
         "go in amber like",
         "run in sander like",
         "hit parmchk like",
-        "GPU as",
+        "run on the GPU as",
         "buzz like",
         "",
     ]
