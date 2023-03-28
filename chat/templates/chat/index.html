@@ -11,9 +11,16 @@
 
 </head>
 <body>
-    What PDB code would you like to learn about?<br>
-    <input id="pdb-code-input" type="text" size="100"><br>
-    <input id="pdb-code-submit" type="button" value="Enter">
+    <div class="container">
+        <div class="row d-flex justify-content-center">
+            <div class="col-6">
+                    <div class="form-group">
+                        <input class="form-control" id="pdb-code-input" placeholder="Enter PDB code here" id="input" type="text"></br>
+                    </div>
+                    <input class="btn btn-primary btn-lg btn-block" id="pdb-code-submit" type="button" value="This PDB? Really?">
+            </div>
+        </div>
+    </div>
 
     <script>
         document.querySelector('#pdb-code-input').focus();
