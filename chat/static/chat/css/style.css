@@ -193,11 +193,12 @@
   input[type="reset"],
   input[type="button"] {
     display: inline-block;
-    height: 38px;
+    height: 50px;
     padding: 0 30px;
     color: #111;
     text-align: center;
-    font-size: 11px;
+    /*font-size: 11px;*/
+    font-size: 2.5rem;
     font-weight: 600;
     line-height: 38px;
     letter-spacing: .1rem;
@@ -256,7 +257,7 @@
   input[type="password"],
   textarea,
   select {
-    height: 38px;
+    height: 50px;
     padding: 6px 10px; /* The 6px vertically centers text on FF, ignored by Webkit */
     background-color: #fff;
     border: 1px solid #D1D1D1;
@@ -311,6 +312,9 @@
     font-weight: normal; }
   
   
+  input[type="text"] {
+    font-size: xx-large;
+  }
   /* Lists
   –––––––––––––––––––––––––––––––––––––––––––––––––– */
   ul {
