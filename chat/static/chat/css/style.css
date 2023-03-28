@@ -263,6 +263,10 @@
     border-radius: 4px;
     box-shadow: none;
     box-sizing: border-box; }
+  textarea{
+    width: 100%;
+    height: 50vh;
+  }
   /* Removes awkward default styles on some inputs for iOS */
   input[type="email"],
   input[type="number"],

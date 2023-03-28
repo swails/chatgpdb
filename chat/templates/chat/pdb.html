@@ -1,3 +1,6 @@
+{% load static %}
+<link rel="stylesheet" href="{% static 'chat/css/style.css' %}">
+
 <!-- chat/templates/chat/pdb.html -->
 <!DOCTYPE html>
 <html>
@@ -6,14 +9,9 @@
     <title>ChatGPDB Information</title>
 
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
-        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
-
 </head>
 <body>
-    <textarea id="chat-log" cols="100" rows="20" readonly></textarea><br>
+    <textarea id="chat-log" cols="100" rows="50" readonly></textarea><br>
     <!--
     <input id="chat-message-input" type="text" size="100"><br>
     <input id="chat-message-submit" type="button" value="Send">
