@@ -9,14 +9,27 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
         integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
 
+    <style>
+        .vertical-center {
+            margin: 0;
+            position: absolute;
+            top: 30%;
+            -ms-transform: translateY(-50%);
+            transform: translateY(-50%);
+        }
+        .horizontal-center {
+            margin: 0;
+            position: absolute;
+            right: 50%;
+        }
+    </style>
+
 </head>
 <body>
-    <div class="container">
+    <div class="container vertical-center">
         <div class="row d-flex justify-content-center">
             <div class="col-6">
-                    <div class="form-group">
-                        <input class="form-control" id="pdb-code-input" placeholder="Enter PDB code here" id="input" type="text"></br>
-                    </div>
+                    <input class="form-control" id="pdb-code-input" placeholder="Enter PDB code here" id="input" type="text"></br>
                     <input class="btn btn-primary btn-lg btn-block" id="pdb-code-submit" type="button" value="This PDB? Really?">
             </div>
         </div>
