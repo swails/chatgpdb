@@ -150,6 +150,13 @@ def random_transition() -> str:
         "hit parmchk like",
         "run on the GPU as",
         "buzz like",
+        "sizzle",
+        "exhibit",
+        "reflect",
+        "zap",
+        "protect",
+        "transport",
+        "transfer",
         "",
     ]
 

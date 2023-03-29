@@ -43,6 +43,9 @@
 
         chatSocket.onmessage = function(e) {
             const data = JSON.parse(e.data);
+            if (data.first) {
+                document.querySelector("#chat-log").value = "";
+            }
             textToAdd += data.message;
         };
 
