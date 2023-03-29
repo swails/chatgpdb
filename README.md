@@ -1,4 +1,13 @@
-# ChatGPDB
+![logo](chat/static/ChatGPDB-icon.png)
+
+Welcome to the source code repository for ChatGPDB!
+Here you'll see how the sausage is made. We use the following technology:
+
+* Django - Implements and runs the webserver
+* Websockets - Provides the snappy interface during compute-intensive, slow (relative to a typical request lifetime) model inference.
+* Huggingface - Provides the Python library (transformers) and model repository to download and use pre-trained machine learning models like GPT.
+
+## Local setup
 
 Think ChatGPDB is cool? Want to set it up yourself? Read the instructions below to find out how.
 
@@ -7,7 +16,7 @@ Think ChatGPDB is cool? Want to set it up yourself? Read the instructions below 
 ```shell
 $ git clone https://huggingface.co/gpt2-large
 ```
-2. Use `git lfs` to download the model files (you may have to install this git extension if the command fails). This may take awhile as `git-lfs` needs to download about 15 GB of model files.
+2. Use `git lfs` to download the model files (you may have to install this git extension if the command fails). This may take awhile as `git-lfs` needs to download about 15 GB of model files (depending on how git is configured, LFS may be invoked as part of step 1).
 ```shell
 $ cd gpt2-large
 $ git lfs pull
@@ -24,6 +33,8 @@ $ conda env create -f environment.yaml
 Have an NVidia GPU capable of accelerating PyTorch model inference? Great! The default configuration is already set up to take advantage.
 
 Don't have an NVidia GPU but want to try it out, anyway? Change the `RUN_CUDA` variable inside `chatgpdb/settings.py` file to `False`.
+
+Note that many LLMs are large (many millions to many billions of parameters), meaning that large memory GPUs are often required for inference.
 
 ## Response length
 
