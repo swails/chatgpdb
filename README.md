@@ -1,4 +1,4 @@
-![logo](chat/static/ChatGPDB-icon.png)
+![logo](chat/static/chat/images/ChatGPDB-icon.png)
 
 Welcome to the source code repository for ChatGPDB!
 Here you'll see how the sausage is made. We use the following technology:

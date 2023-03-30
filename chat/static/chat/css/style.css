@@ -471,7 +471,7 @@
 
   /* Self Clearing Goodness */
   .background {
-    background-image: url("images/molecules.jpg");
+    background-image: url("../images/molecules.jpg");
     background-repeat: no-repeat;
     background-size: cover;
     /*box-sizing: border-box;*/
