@@ -44,12 +44,13 @@
   /* Grid
   –––––––––––––––––––––––––––––––––––––––––––––––––– */
   .container {
+    background-color: #D1D1D1;
     position: relative;
-    width: 100%;
-    max-width: 960px;
-    margin: 0 auto;
-    padding: 0 20px;
-    box-sizing: border-box; }
+    width: 80%;
+    margin: 100% auto;
+    padding: 50px; 
+    box-sizing: border-box;
+    color: #111}
   .column,
   .columns {
     width: 100%;
@@ -59,14 +60,14 @@
   /* For devices larger than 400px */
   @media (min-width: 400px) {
     .container {
-      width: 85%;
+      width: 100%;
       padding: 0; }
   }
   
   /* For devices larger than 550px */
   @media (min-width: 550px) {
     .container {
-      width: 80%; }
+      width: 100%; }
     .column,
     .columns {
       margin-left: 4%; }
@@ -134,17 +135,20 @@
   html is set to 62.5% so that all the REM measurements throughout Skeleton
   are based on 10px sizing. So basically 1.5rem = 15px :) */
   html {
-    font-size: 62.5%; }
+    font-size: 62.5%;
+    height: 100%;
+  }
   body {
     font-size: 1.5em; /* currently ems cause chrome bug misinterpreting rems on body element */
     line-height: 1.6;
     font-weight: 400;
     font-family: "Raleway", "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
     color: #222; }
-  
+
   .centered {
     text-align: center;
   }
+
   .topspaced {
     margin-top: 5%;
   }
@@ -267,7 +271,7 @@
   textarea{
     width: 100%;
     max-width: 90vh;
-    height: 85%;
+    height: 90vh;
     font-size: large;
   }
   /* Removes awkward default styles on some inputs for iOS */
@@ -316,6 +320,7 @@
   
   input[type="text"] {
     font-size: xx-large;
+    width: 80%;
   }
   /* Lists
   –––––––––––––––––––––––––––––––––––––––––––––––––– */
@@ -436,8 +441,47 @@
   
   /* Clearing
   –––––––––––––––––––––––––––––––––––––––––––––––––– */
+  /* #box1 { */
   
+  .box1 {
+    border-radius: 25px;
+    background-color: #FFF;
+    opacity: 0.99;
+    margin: 0 auto;
+    padding-top: 1px;
+    padding-bottom: 1px;
+    width: 60%;
+    height: auto;
+    box-sizing: border-box;
+    position: relative;
+    top: 50px;
+  }
+
+  /*
+    width: 100%;
+    border: 2px solid #D1D1D1;
+    margin: 0 auto;
+    color: #FFF;
+    background: #D1D1D1;
+    opacity: 0.8;
+    border-radius: 5px;
+    box-sizing: border-box;
+  }
+  */
+
   /* Self Clearing Goodness */
+  .background {
+    background-image: url("images/molecules.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    /*box-sizing: border-box;*/
+    /*margin: 0% auto;*/
+    position: relative;
+    opacity: 1.00;
+    width: 100%;
+    height: 100vh;
+  }
+
   .container:after,
   .row:after,
   .u-cf {

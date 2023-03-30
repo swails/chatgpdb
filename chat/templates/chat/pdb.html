@@ -11,9 +11,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=yes">
 </head>
 <body>
-    <div class="centered">
-        <textarea id="chat-log" readonly></textarea><br>
-        <input class="btn btn-primary btn-lg btn-block" id="back-submit" type="button" value="Back">
+    <div class="background">
+        <div class="centered">
+            <textarea id="chat-log" readonly></textarea><br>
+            <input class="btn btn-primary btn-lg btn-block" id="back-submit" type="button" value="Back">
+        </div>
     </div>
     <!--
     <input id="chat-message-input" type="text" size="100"><br>
@@ -51,7 +53,7 @@
 
         function writeText() {
             var i = 0;
-            var speed = 5;
+            var speed = 3;
             function typeWriter() {
                 if (i < textToAdd.length) {
                     document.querySelector("#chat-log").value += textToAdd.charAt(i);
