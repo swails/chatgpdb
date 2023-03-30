@@ -271,7 +271,7 @@
   textarea{
     width: 100%;
     max-width: 90vh;
-    height: 90vh;
+    height: 80%;
     font-size: large;
   }
   /* Removes awkward default styles on some inputs for iOS */
@@ -450,7 +450,8 @@
     margin: 0 auto;
     padding-top: 1px;
     padding-bottom: 1px;
-    width: 60%;
+    width: 90%;
+    max-width: 800px;
     height: auto;
     box-sizing: border-box;
     position: relative;
